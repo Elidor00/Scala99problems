@@ -36,7 +36,7 @@ object P09 {
 
     packInt(List(), l)
   }
-  
+
   def main(args: Array[String]): Unit = {
     val l = List('a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e')
     println(pack(l))
