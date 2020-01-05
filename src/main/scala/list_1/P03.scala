@@ -21,9 +21,8 @@ object P03 {
   def nth1[A](l: List[A], n: Int): A =
     (l, n) match {
       case (h :: _, 0) => h
-      case (_ :: t, n) => nth1(t, n-1)
+      case (_ :: t, n) => nth1(t, n - 1)
       case (Nil, n) => throw new NoSuchElementException("list is empty")
-
     }
 
   def main(args: Array[String]): Unit = {
