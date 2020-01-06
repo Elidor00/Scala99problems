@@ -21,6 +21,10 @@ class P31Test extends AnyFunSpec with Matchers {
     it("should determine if 11 is a prime number") {
       P31.isPrime(11) should be(true)
     }
+
+    it("should determine if 10 is a prime number") {
+      P31.isPrime(10) should be(false)
+    }
   }
 
 }

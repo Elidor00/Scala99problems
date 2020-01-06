@@ -6,6 +6,7 @@ package arithmetic_2
 
 object P31 {
 
+  /*
   def isPrime(n: Int): Boolean = {
     if (n <= 1) false
     else {
@@ -15,6 +16,11 @@ object P31 {
       true
     }
   }
+  */
+
+  def isPrime(n: Int): Boolean =
+    if (n <= 1) false
+    else !(2 to Math.sqrt(n).toInt).exists(x => n % x == 0)
 
   def main(args: Array[String]): Unit = {
     println(isPrime(7))
