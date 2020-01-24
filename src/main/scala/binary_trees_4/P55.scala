@@ -20,8 +20,8 @@ object P55 {
         // odd nodes
         val LeftSubtree = cBalanced((nodes - 1) / 2, value)
         val RightSubtree = cBalanced((nodes - 1) / 2, value)
-        val tree = LeftSubtree.flatMap(l => RightSubtree.map(r => Node(value, l, r)))
-        tree
+
+        LeftSubtree.flatMap(l => RightSubtree.map(r => Node(value, l, r)))
       } else {
         // even nodes
         val LeftSubtreeLesser = cBalanced(nodes / 2 - 1, value)
@@ -31,8 +31,8 @@ object P55 {
         val LeftSubtreeGreater = cBalanced(nodes / 2, value)
         val RightSubtreeLesser = cBalanced(nodes / 2 - 1, value)
         val tree2 = LeftSubtreeGreater.flatMap(l => RightSubtreeLesser.map(r => Node(value, l, r)))
-        val tree = tree1 ++ tree2
-        tree
+
+        tree1 ++ tree2
       }
 
   }
