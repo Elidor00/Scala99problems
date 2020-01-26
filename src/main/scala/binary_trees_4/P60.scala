@@ -38,7 +38,7 @@ object P60 {
   // height = 7 min_nome = 33
   // ecc ecc
 
-  // minimum number of nodes given height
+  // minimum number of nodes in height-balanced binary tree given height
   def minHbalNodes[T](height: Int): Int = height match {
     case 0 => 0
     case 1 => 1
@@ -46,12 +46,11 @@ object P60 {
       minHbalNodes(height - 1) + minHbalNodes(height - 2) + 1
   }
 
-  // maximum number of nodes given height
+  // maximum number of nodes in height-balanced binary tree given height
   def maxHbalNodes[T](height: Int): Int =
     pow(2, height).toInt - 1
 
-
-  // maximum height-balanced binary tree given N nodes
+  // maximum height in height-balanced binary tree given N nodes
   def maxHbalHeight[T](nodes: Int): Int = {
     @scala.annotation.tailrec
     def maxHbalHeightInt(height: Int, nodes: Int): Int = nodes match {
@@ -66,20 +65,21 @@ object P60 {
     maxHbalHeightInt(1, nodes)
   }
 
-  // minimum height-balanced binary tree given N nodes
+  // minimum height in height-balanced binary tree given N nodes
   def minHbalHeight[T](height: Int): Int = height match {
     case 0 => 0
     case _ => 1 + minHbalHeight(height / 2)
   }
 
-
   def hbalTreesWithNodes[T](nodes: Int, value: T): List[Tree[T]] =
     (minHbalHeight(nodes) to maxHbalHeight(nodes)).flatMap(hbalTrees(_, value)).filter(_.nodeCount == nodes).toList
-
 
   def main(args: Array[String]): Unit = {
     println("2 -> " + minHbalNodes(2))
     println("3 -> " + minHbalNodes(3))
+
+    println(maxHbalNodes(3))
+    println(maxHbalNodes(7))
 
     println(maxHbalHeight(12))
     println(minHbalHeight(12))
