@@ -5,7 +5,7 @@ import org.scalatest.matchers.should.Matchers
 
 class P03Test extends AnyFunSpec with Matchers {
 
-  describe("P02") {
+  describe("P03") {
     it("should find the second element of a list") {
       val nth = P03.nth(List("a", "b", "c", "d"), 2)
       nth should be("c")
